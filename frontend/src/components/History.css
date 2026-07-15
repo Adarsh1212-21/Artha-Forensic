@@ -1,0 +1,51 @@
+.history {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 110px 0;
+}
+
+.history__heading {
+  color: var(--paper);
+  font-size: clamp(32px, 4vw, 46px);
+  margin: 18px 0 14px;
+}
+
+.history__quote {
+  font-style: italic;
+  color: var(--blush);
+  font-size: 19px;
+  max-width: 60ch;
+  margin-bottom: 60px;
+}
+
+.history__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 44px 60px;
+}
+
+.history__block h3 {
+  color: var(--rose);
+  font-size: 17px;
+  margin-bottom: 12px;
+}
+
+.history__block p,
+.history__block li {
+  color: rgba(251, 246, 244, 0.8);
+}
+
+.history__block ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.history__block li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 720px) {
+  .history__grid {
+    grid-template-columns: 1fr;
+  }
+}

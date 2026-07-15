@@ -1,0 +1,45 @@
+.mv {
+  background: var(--blush);
+  padding: 110px 0;
+}
+
+.mv__heading {
+  font-size: clamp(30px, 4vw, 42px);
+  margin: 18px 0 50px;
+}
+
+.mv__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.mv__card {
+  background: var(--paper);
+  padding: 34px 30px;
+  border-top: 3px solid var(--wine);
+}
+
+.mv__icon {
+  font-size: 26px;
+  color: var(--wine);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.mv__card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.mv__card p {
+  font-size: 15.5px;
+  color: var(--ink-70);
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .mv__grid {
+    grid-template-columns: 1fr;
+  }
+}
