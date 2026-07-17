@@ -32,7 +32,7 @@ const icons = {
 const channels = [
   { key: "email", label: "Email", value: "arthaforensic@gmail.com", href: "mailto:arthaforensic@gmail.com" },
   { key: "instagram", label: "Instagram", value: "@artha_forensic", href: "https://instagram.com/artha_forensic" },
-  { key: "linkedin", label: "LinkedIn", value: "@arthaforensic", href: "https://linkedin.com/company/arthaforensic" },
+  { key: "linkedin", label: "LinkedIn", value: "@arthaforensic", href: "https://www.linkedin.com/company/artha-forensic-online/" },
   { key: "whatsapp", label: "WhatsApp", value: "+91 91407 35621", href: "https://wa.me/919140735621" },
 ];
 

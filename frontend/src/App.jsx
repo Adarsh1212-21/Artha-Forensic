@@ -4,8 +4,7 @@ import Hero from "./components/Hero.jsx";
 import WhoWeAre from "./components/WhoWeAre.jsx";
 import History from "./components/History.jsx";
 import MissionVision from "./components/MissionVision.jsx";
-import Services from "./components/Services.jsx";
-import Programs from "./components/Programs.jsx";
+import OurServices from "./components/OurServices.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -18,8 +17,7 @@ export default function App() {
         <WhoWeAre />
         <History />
         <MissionVision />
-        <Services />
-        <Programs />
+        <OurServices />
         <Contact />
       </main>
       <Footer />
