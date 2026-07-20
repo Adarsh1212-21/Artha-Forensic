@@ -26,11 +26,12 @@
 
 .our-services__inner {
   width: 100%;
-  padding: 60px 220px 0;
+  max-width: 1600px;
+  padding: 60px 130px 0;
 }
 
 .service-category {
-  margin-bottom: 200px;
+  margin-bottom: 180px;
 }
 
 .service-category:last-child {
@@ -55,58 +56,64 @@
   width: 100%;
 }
 
-/* Each "duo" spans the full row: tall image left, notes staggered
-   in the middle, tall image right — matching the sketch. */
+/* ---------- Desktop: CSS Grid rearranges the flat DOM order
+   (photo, note, photo, note) into photo / stacked-notes / photo ---------- */
 .duo {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+  column-gap: 30px;
   width: 100%;
 }
 
-.duo__thumb {
-  width: 280px;
-  height: 400px;
-  flex-shrink: 0;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #f3f3f3;
-  border-radius: 4px;
-  box-shadow: 0 14px 28px rgba(19, 17, 19, 0.14);
+.duo > *:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / 3;
 }
 
+.duo > *:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: flex-start;
+  justify-self: start;
+}
 
-.duo__notes {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: stretch;
-  padding: 5px 0px;
-  min-width: 0;
+.duo > *:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+.duo > *:nth-child(4) {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: flex-end;
+  justify-self: end;
+}
+
+.duo__thumb {
+  width: 290px;
+  height: 400px;
+  flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  box-shadow: 0 14px 28px rgba(19, 17, 19, 0.14);
 }
 
 .duo__note {
   border: 1.5px solid var(--wine);
   background: var(--paper);
-  padding: 22px 28px;
-  max-width: 460px;
+  padding: 20px 28px;
+  max-width: 400px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+
 }
 
 .duo__note:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 26px rgba(124, 44, 77, 0.15);
-}
-
-.duo__note--top {
-  align-self: flex-start;
-}
-
-.duo__note--bottom {
-  align-self: flex-end;
 }
 
 .duo__note h4 {
@@ -123,45 +130,119 @@
   line-height: 1.5;
 }
 
-/* Single leftover item (odd count in a category) */
+/* Single leftover item (e.g. CUET course, alone in its row) */
 .duo--single {
+  display: flex;
+  align-items: center;
+  gap: 30px;
   justify-content: flex-start;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .duo--single .duo__thumb {
   width: 450px;
-  background-color: transparent;
+  height: 300px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f3f3f3;
+  border-radius: 20px;
   box-shadow: 0 14px 28px rgba(19, 17, 19, 0.14);
 }
 
 .duo--single .duo__note {
+  max-width: 700px;
   margin-top: 100px;
-   max-width: 700px;
+  margin-left: 30px;
 }
 
-.duo--single .duo__note {
-  margin-left: 40px;
-}
-
+/* ---------- Mobile: reset grid, let flat DOM order flow
+   naturally as photo -> note -> photo -> note ---------- */
 @media (max-width: 900px) {
-  .duo,
+  .our-services {
+    padding: 70px 0;
+  }
+
+  .our-services__heading-wrap {
+    padding: 0 20px;
+  }
+
+  .our-services__inner {
+    padding: 40px 20px 0;
+  }
+
+  .service-category {
+    margin-bottom: 70px;
+  }
+
+  .service-category__title {
+    margin-bottom: 30px;
+  }
+
+  .service-category__pairs {
+    gap: 40px;
+  }
+
+  .duo {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .duo > *:nth-child(1),
+  .duo > *:nth-child(2),
+  .duo > *:nth-child(3),
+  .duo > *:nth-child(4) {
+    grid-column: unset;
+    grid-row: unset;
+    align-self: stretch;
+    justify-self: stretch;
+  }
+
   .duo--single {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 26px;
   }
-  .duo__thumb {
-    width: 100%;
-    height: 240px;
+
+  /* Images fit nicely on mobile: full width, natural aspect ratio,
+     no cropping and no fixed desktop height (including the CUET
+     course's inline imageHeight, overridden here with !important). */
+  .duo__thumb,
+  .duo--single .duo__thumb {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 3 / 4;
+    background-size: contain;
+    background-color: #f3f3f3;
   }
-  .duo__notes {
-    padding: 20px 0;
-    width: 100%;
-  }
+
   .duo__note,
   .duo--single .duo__note {
     max-width: 100%;
+    width: 100%;
+    margin-top: 0;
     margin-left: 0;
-    align-self: stretch !important;
+    padding: 18px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .our-services__heading {
+    font-size: 26px;
+  }
+
+  .service-category__title {
+    font-size: 17px;
+  }
+
+  .duo__note h4 {
+    font-size: 16px;
+  }
+
+  .duo__note p {
+    font-size: 14px;
   }
 }

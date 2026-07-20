@@ -23,7 +23,9 @@ export default function Navbar() {
   return (
     <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="container nav__inner">
+
         <a href="#top" className="nav__brand">
+          <img src="/images/services/logo.jpeg" alt="Artha Forensic logo" className="nav__logo" />
           Artha <span>Forensic</span>
         </a>
 

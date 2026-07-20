@@ -1,4 +1,5 @@
 import React from "react";
+import ExpertisePanel from "./ExpertisePanel.jsx";
 import "./Hero.css";
 
 function AnimatedWord({ text, delayStart }) {
@@ -21,6 +22,8 @@ function AnimatedWord({ text, delayStart }) {
     </span>
   );
 }
+
+
 export default function Hero() {
   return (
     <section id="top" className="hero">
@@ -29,8 +32,12 @@ export default function Hero() {
         frontend/public/images/hero.jpg
         (recommended: a dark, high-contrast forensic scene, matches brochure cover)
       */}
-      <div className="hero__bg" style={{ backgroundImage: "url('/images/hero.jpg')" }} />
+      <div className="hero__bg" style={{ backgroundImage: "url('/images/services/hero.png')" }} />
       <div className="hero__scrim" />
+
+      <ExpertisePanel />
+
+
 
       <div className="container hero__content">
         <div className="hero__labels">

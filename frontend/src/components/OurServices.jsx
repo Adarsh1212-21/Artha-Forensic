@@ -22,11 +22,11 @@ const CATEGORIES = [
     title: "Courses & Workshops",
     items: [
       {
-  title: "CUET PG Online Course",
-  text: "A six-month complete CUET PG preparation batch led by expert faculty from NFSU and BHU, with live classes, doubt-solving mentorship, and curated notes and PDFs. Includes regular mock tests, PYQ discussions, and personalized university guidance for institutions like NFSU and BHU.",
-  image: "/images/services/course1.jpeg",
-  imageHeight: "450px",
-},
+        title: "CUET PG Online Course",
+        text: "A six-month complete CUET PG preparation batch led by expert faculty from NFSU and BHU, with live classes, doubt-solving mentorship, and curated notes and PDFs. Includes regular mock tests, PYQ discussions, and personalized university guidance for institutions like NFSU and BHU.",
+        image: "/images/services/course1.jpeg",
+        imageHeight: "450px",
+      },
       {
         title: "Decoding Death: Workshop",
         text: "A 2-day workshop on thanatology and medico-legal reports, led by Dr. Shivam Dwivedi (Assistant Professor, Chandigarh University).",
@@ -86,9 +86,9 @@ function Thumb({ item }) {
   );
 }
 
-function Note({ item, position }) {
+function Note({ item }) {
   return (
-    <div className={`duo__note duo__note--${position}`}>
+    <div className="duo__note">
       <h4>{item.title}</h4>
       <p>{item.text}</p>
     </div>
@@ -99,23 +99,24 @@ function ServicePair({ pair }) {
   const [first, second] = pair;
 
   if (!second) {
-    // Odd one out — render as a simple centered single row
+    // Odd one out — simple single photo + note row
     return (
       <div className="duo duo--single">
         <Thumb item={first} />
-        <Note item={first} position="top" />
+        <Note item={first} />
       </div>
     );
   }
 
+  // Flat DOM order: photo, note, photo, note.
+  // Desktop CSS (grid) rearranges this into thumb / stacked-notes / thumb.
+  // Mobile CSS lets this natural order flow top to bottom, unchanged.
   return (
     <div className="duo">
       <Thumb item={first} />
-      <div className="duo__notes">
-        <Note item={first} position="top" />
-        <Note item={second} position="bottom" />
-      </div>
+      <Note item={first} />
       <Thumb item={second} />
+      <Note item={second} />
     </div>
   );
 }

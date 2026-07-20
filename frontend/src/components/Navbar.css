@@ -9,6 +9,18 @@
   padding: 22px 0;
 }
 
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav__logo {
+  height: 48px;
+  width: auto;
+  border-radius: 10px;
+}
+
 .nav--scrolled {
   background: var(--ink);
   box-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);

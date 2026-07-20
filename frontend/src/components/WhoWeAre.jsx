@@ -42,7 +42,7 @@ export default function WhoWeAre() {
             </div>
             <div className="who__stat-arrow">&rarr;</div>
             <div className="who__stat">
-              <span className="who__stat-number">2K+</span>
+              <span className="who__stat-number">2.5K+</span>
               <span className="who__stat-label">Followers on LinkedIn</span>
             </div>
           </div>
