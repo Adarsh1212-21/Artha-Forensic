@@ -114,9 +114,14 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .expertise-panel {
-    display: none;
+    position: static;
+    width: 100%;
+    max-width: 480px;
+    margin: 40px auto 0;
+    right: auto;
+    top: auto;
   }
 }
 

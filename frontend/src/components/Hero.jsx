@@ -33,9 +33,10 @@ export default function Hero() {
         (recommended: a dark, high-contrast forensic scene, matches brochure cover)
       */}
       <div className="hero__bg" style={{ backgroundImage: "url('/images/services/hero.png')" }} />
+      <div className="hero__bg hero__bg--mobile" style={{ backgroundImage: "url('/images/services/hero-mobile.png')" }} />
       <div className="hero__scrim" />
 
-      <ExpertisePanel />
+      
 
 
 
@@ -77,6 +78,7 @@ export default function Hero() {
           </a>
         </div>
       </div>
+      <ExpertisePanel />
     </section>
   );
 }

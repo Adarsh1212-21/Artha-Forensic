@@ -118,6 +118,13 @@ button {
   transform: translateY(0);
 }
 
+@media (max-width: 900px) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .btn {
   display: inline-block;
   font-size: 14px;

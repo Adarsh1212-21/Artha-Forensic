@@ -24,7 +24,7 @@ const CATEGORIES = [
       {
         title: "CUET PG Online Course",
         text: "A six-month complete CUET PG preparation batch led by expert faculty from NFSU and BHU, with live classes, doubt-solving mentorship, and curated notes and PDFs. Includes regular mock tests, PYQ discussions, and personalized university guidance for institutions like NFSU and BHU.",
-        image: "/images/services/course1.jpeg",
+        image: "/images/services/course1.png",
         imageHeight: "450px",
       },
       {

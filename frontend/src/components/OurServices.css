@@ -92,8 +92,8 @@
 }
 
 .duo__thumb {
-  width: 290px;
-  height: 400px;
+  width: 280px;
+  height: 390px;
   flex-shrink: 0;
   background-size: cover;
   background-position: center;
@@ -140,14 +140,12 @@
 }
 
 .duo--single .duo__thumb {
-  width: 450px;
-  height: 300px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #f3f3f3;
-  border-radius: 20px;
-  box-shadow: 0 14px 28px rgba(19, 17, 19, 0.14);
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: 60px;
 }
 
 .duo--single .duo__note {
@@ -207,17 +205,37 @@
     margin-bottom: 26px;
   }
 
-  /* Images fit nicely on mobile: full width, natural aspect ratio,
-     no cropping and no fixed desktop height (including the CUET
-     course's inline imageHeight, overridden here with !important). */
-  .duo__thumb,
-  .duo--single .duo__thumb {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 3 / 4;
-    background-size: contain;
-    background-color: #f3f3f3;
+@media (max-width: 900px) {
+  .duo__thumb {
+    width: 310;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    background-color: var(--paper);
+    border-radius: 20px;
   }
+
+  .duo--single .duo__thumb {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+  .duo {
+    gap: 20px;
+  }
+
+    .duo__note {
+    margin-bottom: 60px;
+  }
+
+  .duo--single {
+    gap: 20px;
+  }
+}
 
   .duo__note,
   .duo--single .duo__note {
