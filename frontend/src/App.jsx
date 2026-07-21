@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
+import UpcomingEvents from "./components/UpcomingEvents.jsx";
 import WhoWeAre from "./components/WhoWeAre.jsx";
 import History from "./components/History.jsx";
 import MissionVision from "./components/MissionVision.jsx";
@@ -14,6 +15,7 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <UpcomingEvents />
         <WhoWeAre />
         <History />
         <MissionVision />

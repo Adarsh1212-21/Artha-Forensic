@@ -21,12 +21,20 @@ const CATEGORIES = [
   {
     title: "Courses & Workshops",
     items: [
-      {
-        title: "CUET PG Online Course",
-        text: "A six-month complete CUET PG preparation batch led by expert faculty from NFSU and BHU, with live classes, doubt-solving mentorship, and curated notes and PDFs. Includes regular mock tests, PYQ discussions, and personalized university guidance for institutions like NFSU and BHU.",
-        image: "/images/services/course1.png",
-        imageHeight: "450px",
-      },
+     {
+  title: "CUET PG Online Course",
+  text: "A six-month CUET PG prep batch with live classes, mock tests, and university guidance (NFSU, BHU & more).",
+  image: "/images/services/course1.png",
+  imageHeight: "450px",
+  anchorId: "event-cuet-course",
+   className: "cuet-image",
+},
+{
+  title: "Modern Forensic Science & Digital Forensic Investigation",
+  text: "A live workshop on digital evidence and forensic tools with Rupali Shukla (Cyber Forensic Analyst), held on Google Meet.",
+  image: "/images/services/workshop3.png",
+  anchorId: "event-digital-forensic-workshop",
+},
       {
         title: "Decoding Death: Workshop",
         text: "A 2-day workshop on thanatology and medico-legal reports, led by Dr. Shivam Dwivedi (Assistant Professor, Chandigarh University).",
@@ -37,6 +45,7 @@ const CATEGORIES = [
         text: "A 2-day workshop on skeletal analysis for biological profile reconstruction, led by Dr. Anjali Sehrawat — accessible for non-medical students too.",
         image: "/images/services/workshop2.jpeg",
       },
+      
     ],
   },
   {
@@ -76,13 +85,24 @@ function chunkPairs(items) {
 
 function Thumb({ item }) {
   return (
-    <div
-      className="duo__thumb"
-      style={{
-        backgroundImage: `url('${item.image}')`,
-        ...(item.imageHeight ? { height: item.imageHeight } : {}),
-      }}
-    />
+    <div id={item.anchorId} className="duo__thumb-wrap">
+      <img
+        src={item.image}
+        alt={item.title}
+        className={`duo__thumb duo__thumb--desktop ${item.className || ""} ${
+          item.mobileImage ? "has-mobile-version" : ""
+        }`}
+        style={item.imageHeight ? { "--desktop-height": item.imageHeight } : undefined}
+      />
+
+      {item.mobileImage && (
+        <img
+          src={item.mobileImage}
+          alt={item.title}
+          className="duo__thumb duo__thumb--mobile"
+        />
+      )}
+    </div>
   );
 }
 
